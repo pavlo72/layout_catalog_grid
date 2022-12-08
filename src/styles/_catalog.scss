@@ -1,9 +1,9 @@
 .catalog {
-  display: flex;
-  flex-wrap: wrap;
-
-  max-width: 944px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  justify-items: center;
+  gap: 48px;
 
   &__card {
     display: flex;
@@ -15,8 +15,25 @@
     border-radius: 5px;
     margin-bottom: 48px;
   }
+}
 
-  &__card:not(:nth-child(4n)) {
-    margin-right: 48px;
+@media screen and (min-width: 488px) {
+  .catalog {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .catalog {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .catalog {
+    grid-template-columns: repeat(4, 200px);
+    grid-auto-flow: row;
   }
 }
